@@ -8,6 +8,9 @@ import {
   serializeCookie,
 } from "@lucid-softworks/http-cookies";
 
+const request = new Request("https://example.com", {
+  headers: { cookie: "theme=dark; session=token" },
+});
 const cookies = parseCookieHeader(request.headers.get("cookie"));
 const header = serializeCookie("session", "token", {
   httpOnly: true,
